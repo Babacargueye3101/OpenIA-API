@@ -1,0 +1,6 @@
+fr:
+  errors:
+    prompt_blank: "Le prompt ne peut pas être vide."
+    service_error: "Erreur lors de l'appel au service : %{message}"
+  responses:
+    default_assistant: "Vous êtes un assistant virtuel pour MyBOA."

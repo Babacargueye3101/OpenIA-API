@@ -4,11 +4,11 @@ module Api
       protect_from_forgery except: [:ask]
 
       def ask
-        role_assistant = params[:role_assistant] || "Vous êtes un assistant virtuel pour MyBOA."
+        role_assistant = params[:role_assistant] || I18n.t('responses.default_assistant')
         prompt = params[:prompt]
 
         if prompt.blank?
-          render json: { error: "Le prompt ne peut pas être vide." }, status: :unprocessable_entity
+          render json: { error: I18n.t('errors.prompt_blank') }, status: :unprocessable_entity
           return
         end
 
@@ -16,7 +16,7 @@ module Api
           response = OpenAiService.call(role_assistant, prompt)
           render json: { response: response }, status: :ok
         rescue => e
-          render json: { error: "Erreur lors de l'appel au service : #{e.message}" }, status: :internal_server_error
+          render json: { error: I18n.t('errors.service_error', message: e.message) }, status: :internal_server_error
         end
       end
     end
