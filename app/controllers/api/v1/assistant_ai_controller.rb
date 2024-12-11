@@ -14,9 +14,9 @@ module Api
 
         begin
           response = OpenAiService.call(role_assistant, prompt)
-          render json: { response: response }, status: :ok
+          render json:  response , status: :ok
         rescue => e
-          render json: { error: I18n.t('errors.service_error', message: e.message) }, status: :internal_server_error
+          render json: { error: I18n.t('errors.service_error', message: e.message) }, status: 500
         end
       end
     end
