@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  webapp:
+    build: .
+    image: boaweb/engine-ai
+    container_name: 'BOA-ENGINE-AI'
+    restart: always
+    command: ./bin/docker-entrypoint.sh
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+    logging:
+      options:
+        max-size: '100m'
+        max-file: '7'
+    ports:
+      - '3030:3000'
+    volumes:
+      - '.:/boa_ai_engine'
+    environment:
+      - BOA_WEB_LOG_LEVEL=debug
