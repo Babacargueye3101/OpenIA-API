@@ -6,7 +6,7 @@ services:
     image: boaweb/engine-ai
     container_name: 'BOA-ENGINE-AI'
     restart: always
-    command: ./bin/docker-entrypoint.sh
+    command: ./docker/docker-entrypoint.sh
     ulimits:
       nofile:
         soft: 65536
