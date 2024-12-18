@@ -16,8 +16,7 @@ services:
         max-size: '100m'
         max-file: '7'
     ports:
-      - '3030:3000'
+      - '3040:3000'
     volumes:
       - '.:/boa_ai_engine'
     environment:
-      - BOA_WEB_LOG_LEVEL=debug
