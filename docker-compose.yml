@@ -19,4 +19,3 @@ services:
       - '3040:3000'
     volumes:
       - '.:/boa_ai_engine'
-    environment:
