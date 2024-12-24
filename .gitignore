@@ -69,3 +69,6 @@ shared/logs/*
 
 /vendor/bundle
 db/schema.rb
+.env
+.env
+.env
